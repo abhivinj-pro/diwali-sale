@@ -27,7 +27,14 @@
     document.getElementById("view-photo").alt = d.name;
     document.getElementById("view-category").textContent = d.category + (d.sold ? " · Sold out" : "");
     document.getElementById("view-name").textContent = d.name;
-    document.getElementById("view-price").textContent = d.price + (d.note ? " " + d.note : "");
+    var price = document.getElementById("view-price");
+    price.textContent = d.price + (d.note ? " " + d.note : "");
+    if (d.was) {
+      var was = document.createElement("del");
+      was.className = "was";
+      was.textContent = d.was;
+      price.prepend(was, " ");
+    }
     order.style.display = d.wa ? "" : "none";
     order.href = d.wa || "#";
     order.textContent = d.sold ? "Ask about this on WhatsApp" : "Order on WhatsApp";
