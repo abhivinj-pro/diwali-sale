@@ -28,6 +28,7 @@
     document.getElementById("view-category").textContent = d.category + (d.sold ? " · Sold out" : "");
     document.getElementById("view-name").textContent = d.name;
     var price = document.getElementById("view-price");
+    price.hidden = !d.price;
     price.textContent = d.price + (d.note ? " " + d.note : "");
     if (d.was) {
       var was = document.createElement("del");
